@@ -170,6 +170,9 @@ SOAPClient._sendSoapRequest = function(url, method, parameters, async, callback,
 				"xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" " +
 				"xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">" +
 				"<soap:Body>" +
+				// Add namespace to method's name
+				// Andrew's original:
+				// "<" + method + " xmlns=\"" + ns + "\">" +
 				"<" + method + " xmlns=\"" + ns + "\">" +
 				parameters.toXml(ns) +
 				"</" + method + "></soap:Body></soap:Envelope>";
@@ -181,6 +184,8 @@ SOAPClient._sendSoapRequest = function(url, method, parameters, async, callback,
 	}
 	else
 		xmlHttp.open("POST", url + "?wsdl", async);
+
+	// Remove SOAP Action until needed.
 	// var soapaction = ((ns.lastIndexOf("/") != ns.length - 1) ? ns + "/" : ns) + encodeURIComponent(method);
 	// xmlHttp.setRequestHeader("SOAPAction", soapaction);
 	xmlHttp.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
@@ -213,8 +218,12 @@ SOAPClient._onSendSoapRequest = function(method, async, callback, wsdl, req)
 			    throw new Error(500, req.responseXML.getElementsByTagName("faultstring")[0].childNodes[0].nodeValue);
 		}
 	}
-	else
+	else {
+
+	 // Check &lt; (<) and &gt; (>)
+
 		o = SOAPClient._soapresult2object(nd[0], wsdl);
+	}
 	if(callback)
 		callback(o, req.responseXML);
 	if(!async)
