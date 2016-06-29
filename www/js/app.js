@@ -28,17 +28,19 @@ var app = angular.module('starter', ['ionic','angularSoap'])
   $scope.send = function(){
     console.log('ok');
 
-    var service = USHolidayService;
-    // var service = PTTService;
+    // var service = USHolidayService;
+    var service = PTTService;
 
     $ionicLoading.show();
 
     service.call().then(function(data){
       $ionicLoading.hide();
+      alert(data);
       console.dir(data);
       $scope.results = data;
     }, function(error){
       $ionicLoading.hide();
+      alert('Error');
       console.log('try again :)');
     })
 
