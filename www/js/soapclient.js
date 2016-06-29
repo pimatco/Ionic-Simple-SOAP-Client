@@ -25,8 +25,8 @@ function SOAPClientParameters()
                 case "number":
                 case "boolean":
                 case "object":
-                    // xml += "<" + namespace + ":" + p + ">" + SOAPClientParameters._serialize(_pl[p]) + "</" + namespace + ":" + p + ">";
-                    xml += "<" + p + " xmlns=\"" + namespace + "\">" + SOAPClientParameters._serialize(_pl[p]) + "</" + p + ">";
+                    // xml += "<" + p + " xmlns=\"" + namespace + "\">" + SOAPClientParameters._serialize(_pl[p]) + "</" + p + ">";
+                    xml += "<" + p + ">" + SOAPClientParameters._serialize(_pl[p]) + "</" + p + ">";
                     break;
                 default:
                     break;
