@@ -23,13 +23,6 @@ var app = angular.module('starter', ['ionic','angularSoap'])
   });
 })
 
-.config(function ($httpProvider) {
-  $httpProvider.defaults.headers.common = {};
-  $httpProvider.defaults.headers.post = {};
-  $httpProvider.defaults.headers.put = {};
-  $httpProvider.defaults.headers.patch = {};
-})
-
 .controller('AppController', ['$scope','USHolidayService','PTTService', function($scope,USHolidayService,PTTService){
   $scope.send = function(){
     console.log('ok');
@@ -40,6 +33,7 @@ var app = angular.module('starter', ['ionic','angularSoap'])
 
     service.call().then(function(data){
       console.dir(data);
+      $scope.results = data;
     }, function(error){
       console.log('try again :)');
     })
