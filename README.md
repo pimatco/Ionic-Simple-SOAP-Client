@@ -27,3 +27,19 @@ A simple implemented SOAP client built by Ionic Framework
 
 7. Click 'Send' button
 8. OK, if everything's ok. We should see list of holiday in XML format show into bottom.
+
+### PTT Web Service Information
+
+- URL: `http://www.pttplc.com/webservice/pttinfo.asmx`
+- WSDL URL: `http://www.pttplc.com/webservice/pttinfo.asmx?wsdl`
+- Request Body
+
+```
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+ <soapenv:Body>
+ <CurrentOilPrice xmlns="http://www.pttplc.com/ptt_webservice/">
+     <Language xmlns="http://www.pttplc.com/ptt_webservice/">en</Language>
+ </CurrentOilPrice>
+ </soapenv:Body>
+</soapenv:Envelope>
+```
