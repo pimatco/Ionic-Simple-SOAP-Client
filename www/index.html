@@ -30,9 +30,16 @@
     <ion-pane ng-controller="AppController">
       <ion-header-bar class="bar-stable">
         <h1 class="title">Ionic Blank Starter</h1>
+        <div class="buttons">
+          <button ng-click="send()">Send</button>
+        </div>
       </ion-header-bar>
       <ion-content>
-        <button class="button button-block" ng-click="send()">Send</button>
+        <ion-list>
+          <ion-item ng-repeat="item in results">
+            {{item.description}}
+          </ion-item>
+        </ion-list>
       </ion-content>
     </ion-pane>
   </body>
