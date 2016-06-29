@@ -8,6 +8,8 @@ A simple implemented SOAP client built by Ionic Framework
 
 ### Instruction to test Holiday Web Service
 
+Before start, you've to install [POST Man](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en) (It's a Chrome App) to your Google Chrome.
+
 1. Select `POST` method
 2. Use this as URL: `http://www.holidaywebservice.com//HolidayService_v2/HolidayService2.asmx`
 3. Go to tab 'Body'
@@ -29,6 +31,37 @@ A simple implemented SOAP client built by Ionic Framework
 8. OK, if everything's ok. We should see list of holiday in XML format show into bottom.
 
 ### PTT Web Service Information
+
+** Returned result is not well-structured. You might have to parse raw data with yourself.
+
+####Example of malfunction data:
+
+```
+<soap:Body>
+        <CurrentOilPriceResponse xmlns="http://www.pttplc.com/ptt_webservice/">
+            <CurrentOilPriceResult>&lt;PTT_DS&gt;
+  &lt;DataAccess&gt;
+    &lt;PRICE_DATE&gt;2016-06-29T05:00:00+07:00&lt;/PRICE_DATE&gt;
+    &lt;PRODUCT&gt;Blue Gasoline 95&lt;/PRODUCT&gt;
+    &lt;PRICE&gt;31.56&lt;/PRICE&gt;
+  &lt;/DataAccess&gt;
+  &lt;DataAccess&gt;
+    &lt;PRICE_DATE&gt;2015-06-05T05:00:00+07:00&lt;/PRICE_DATE&gt;
+    &lt;PRODUCT&gt;Blue Gasoline 91&lt;/PRODUCT&gt;
+  &lt;/DataAccess&gt;
+  &lt;DataAccess&gt;
+    &lt;PRICE_DATE&gt;2016-06-29T05:00:00+07:00&lt;/PRICE_DATE&gt;
+    &lt;PRODUCT&gt;Blue Diesel&lt;/PRODUCT&gt;
+    &lt;PRICE&gt;24.69&lt;/PRICE&gt;
+  &lt;/DataAccess&gt;
+  &lt;DataAccess&gt;
+    &lt;PRICE_DATE&gt;2016-06-29T05:00:00+07:00&lt;/PRICE_DATE&gt;
+    &lt;PRODUCT&gt;Blue Gasohol 91&lt;/PRODUCT&gt;
+    &lt;PRICE&gt;24.18&lt;/PRICE&gt;
+  &lt;/DataAccess&gt;
+```
+
+####Web Service
 
 - URL: `http://www.pttplc.com/webservice/pttinfo.asmx`
 - WSDL URL: `http://www.pttplc.com/webservice/pttinfo.asmx?wsdl`
